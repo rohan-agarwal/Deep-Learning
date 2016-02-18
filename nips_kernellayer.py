@@ -5,30 +5,23 @@ Kernel Operations for ODCNN
 """
 
 
-
 import numpy
 import theano
 from theano import tensor as T
 from theano.tensor.nnet import conv
+from PIL import Image
+import glob
 
 
 class KernelLayer(object):
 
-    def __init__(self, rng, input, filter_shape, image_shape, poolsize=(2, 2)):
+    def __init__(self, rng, input, filter_shape, image_shape):
 
         assert image_shape[1] == filter_shape[1]
         self.input = input
 
-        # there are "num input feature maps * filter height * filter width"
-        # inputs to each hidden unit
         fan_in = numpy.prod(filter_shape[1:])
-        # each unit in the lower layer receives a gradient from:
-        # "num output feature maps * filter height * filter width" /
-        #   pooling size
-        fan_out = (filter_shape[0] * numpy.prod(filter_shape[2:]) /
-                   numpy.prod(poolsize))
-        # initialize weights with random weights
-        W_bound = numpy.sqrt(6. / (fan_in + fan_out))
+        W_bound = numpy.sqrt(6. / fan_in)
         self.W = theano.shared(
             numpy.asarray(
                 rng.uniform(low=-W_bound, high=W_bound, size=filter_shape),
@@ -60,3 +53,38 @@ class KernelLayer(object):
 
         # keep track of model input
         self.input = input
+
+rng = numpy.random.RandomState(23455)
+img = Image.open("C:\Users\Rohan\Documents\GitHub\Deep-Learning\Data\clean\one.png")
+
+layer0 = KernelLayer(
+        rng,
+        input=img,
+        image_shape=(batch_size, 1, 28, 28),
+        filter_shape=(nkerns[0], 1, 5, 5),
+    )
+
+
+def load_data():
+
+    def pic2np(gpath):
+        image_list = []
+        for f in glob.glob(gpath):
+            im = Image.open(f)
+            im = numpy.asarray(im, dtype='float32') / 256.
+            im = im.ravel()
+            image_list.append(im)
+        return image_list
+
+    data_x = pic2np(
+        'C:\Users\Rohan\Documents\GitHub\Deep-Learning\Data\\blur\*.jpg')
+    data_y = pic2np(
+        'C:\Users\Rohan\Documents\GitHub\Deep-Learning\Data\clean\*.png')
+
+    shared_x = theano.shared(numpy.asarray(data_x,
+                                           dtype=theano.config.floatX))
+
+    shared_y = theano.shared(numpy.asarray(data_y,
+                                           dtype=theano.config.floatX))
+
+    return shared_x, shared_y
