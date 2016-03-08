@@ -207,12 +207,12 @@ def load_data(dataset):
     f = gzip.open(dataset, 'rb')
     train_set, valid_set, test_set = cPickle.load(f)
     f.close()
-    #train_set, valid_set, test_set format: tuple(input, target)
-    #input is an numpy.ndarray of 2 dimensions (a matrix)
-    #witch row's correspond to an example. target is a
-    #numpy.ndarray of 1 dimensions (vector)) that have the same length as
-    #the number of rows in the input. It should give the target
-    #target to the example with the same index in the input.
+    # train_set, valid_set, test_set format: tuple(input, target)
+    # input is an numpy.ndarray of 2 dimensions (a matrix)
+    # witch row's correspond to an example. target is a
+    # numpy.ndarray of 1 dimensions (vector)) that have the same length as
+    # the number of rows in the input. It should give the target
+    # target to the example with the same index in the input.
 
     def shared_dataset(data_xy, borrow=True):
         """ Function that loads the dataset into shared variables
@@ -456,7 +456,7 @@ def predict():
         outputs=classifier.y_pred)
 
     # We can test it on some examples from test test
-    dataset='mnist.pkl.gz'
+    dataset = 'mnist.pkl.gz'
     datasets = load_data(dataset)
     test_set_x, test_set_y = datasets[2]
     test_set_x = test_set_x.get_value()
