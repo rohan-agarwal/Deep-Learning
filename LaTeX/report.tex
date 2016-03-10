@@ -78,24 +78,35 @@
 
                 \begin{enumerate}
 
-                    \item Implement the SDA structure
-                    \item Create a padding function in Theano for images
-                    \item Create a least squares cost function for a convolutional neural network in Theano 
-                    \item Implement ODCNN
+                    \item Implement a modular denoising autoencoder architecture
+                    \item Stack multiple autoencoders
+                    \item Create a least squares cost function for a convolutional neural network in Theano
+                    \item Create a modular convolutional neural network
                     \item Substitute the last two layers of ODCNN with the previously created SDA and benchmark
 
                 \end{enumerate}
 
-        \section{Current Progress}
+        \section{Progress}
+            \paragraph{}
+            I first created a single layer autoencoder with the ability to simply edit the loss function and parameters. Currently the loss function is cross-entropy based but it can be easily modified to use least squares or KL divergence. Subsequently after creating one layer, the next step was to create a network that had two individual layers which have been pre-trained, on top of which there is a fine-tuning function to optimize for the parameters. This constitutes creating the SDA architecture.
 
-            \begin{enumerate}
+            \paragraph{}
+            Creating the ODCNN network was simpler because of canonical examples that already exist within Theano such as the LeNet architecture. Taking inspiration, I streamlined the code to remove extraneous features such as max pooling and then edited the layers to reflect the use of kernels and the associated reductions in image size. The final comparison would then be between the output (which is a smaller image due to using kernels) and a smaller version of the original image that has been cropped.
 
-                \item \st{Implement the SDA structure}
-                \item Create a padding function in Theano for images
-                \item \st{Create a least squares cost function for a convolutional neural network in Theano} 
-                \item Implement ODCNN
-                \item Substitute the last two layers of ODCNN with the previously created SDA and benchmark
+            \paragraph{}
+            As a result, complete code has been written for the modular architectures of both the autoencoder and CNN architectures. This includes classes individual layers along with training/validation/testing functions to optimize. Below is an example of a series of filters generated from an autoencoder with the same set of training images used by the ODCNN:
 
-            \end{enumerate}
+            \begin{figure}[h]
+            \includegraphics[scale=0.05]{da.png}
+            \centering
+            \end{figure}
+
+            \paragraph{}
+            That being said, the largest barrier was computational intensity. Using a laptop with 16 GB RAM and a nVidia GTX 960M GPU I wasn't able to run the deeper networks I created; Python either crashed or yielded a memory error. The only task that the computer could handle was single-layer denoising autoencoders with a small number of hidden layer nodes (100), for which the visualization of filters has been included. However all of the code is available for both the ODCNN and the SDA, and simply needs to be executed on a different computer after setting up Theano. 
+
+        \section{Conclusion}
+            \paragraph{}
+            Although computation was a barrier, I've been able to create code that allows for deep networks, specifically autoencoders to deblur images, to be easily modified and altered. In the future this can allow for deep learning architectures to be optimized for performance seamlessly. Given inspiration from the ODCNN and SDA architectures, I believe that the ideal deblurring network would convolve images with filters as well as use fully connected, pre-trained autoencoder layers to remove any artifacts afterward. 
+
 
     \end{document}

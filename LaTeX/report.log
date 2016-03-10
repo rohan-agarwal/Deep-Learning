@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2016.2.17)  18 FEB 2016 01:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2016.2.17)  9 MAR 2016 23:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -227,24 +227,37 @@ File: ODCNN.png Graphic file (type png)
 Package pdftex.def Info: ODCNN.png used on input line 61.
 (pdftex.def)             Requested size: 395.07652pt x 126.87415pt.
  [3 <./ODCNN.png>]
-[4] (./report.aux) ) 
+<da.png, id=24, 8039.03375pt x 6031.53375pt>
+File: da.png Graphic file (type png)
+ <use da.png>
+Package pdftex.def Info: da.png used on input line 100.
+(pdftex.def)             Requested size: 401.97523pt x 301.59436pt.
+
+Overfull \hbox (4.49023pt too wide) in paragraph at lines 100--102
+ [][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[4] [5 <./da.png (PNG copy)>] (./report.aux) ) 
 Here is how much of TeX's memory you used:
- 2151 strings out of 493033
- 30324 string characters out of 6137748
+ 2156 strings out of 493033
+ 30373 string characters out of 6137748
  100003 words of memory out of 5000000
- 5678 multiletter control sequences out of 15000+600000
+ 5682 multiletter control sequences out of 15000+600000
  8554 words of font info for 30 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 37i,6n,32p,896b,236s stack positions out of 5000i,500n,10000p,200000b,80000s
-<c:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmbx12.pfb><c:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
-><c:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texli
-ve/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2015/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on report.pdf (4 pages, 157959 bytes).
+ 37i,6n,32p,896b,214s stack positions out of 5000i,500n,10000p,200000b,80000s
+<c:/texlive/2015/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2015/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmr10.pfb><c:/texlive/2015/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmr12.pfb><c:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
+17.pfb><c:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on report.pdf (5 pages, 43375527 bytes).
 PDF statistics:
- 44 PDF objects out of 1000 (max. 8388607)
- 26 compressed objects within 1 object stream
+ 48 PDF objects out of 1000 (max. 8388607)
+ 28 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 16 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -85,6 +85,9 @@ INPUT ./autoencoder.png
 INPUT ODCNN.png
 INPUT ./ODCNN.png
 INPUT ./ODCNN.png
+INPUT da.png
+INPUT ./da.png
+INPUT ./da.png
 INPUT report.aux
 INPUT c:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 INPUT c:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb

@@ -1,9 +1,10 @@
 # Fdb version 3
-["pdflatex"] 1455779196 "report.tex" "report.pdf" "report" 1455779197
+["pdflatex"] 1457587554 "report.tex" "report.pdf" "report" 1457587555
   "./ODCNN.png" 1455778483 52142 38374f9589de7168ca04588f25d55d7a ""
   "./autoencoder.png" 1455778514 26681 1180965acfa540233715359fdc1abc68 ""
+  "./da.png" 1457586687 43221936 8d2bd2b4926c08e1f21da0166d26fd70 ""
   "./local.png" 1455745611 11941 8ebc371cf47177989919c0df2e0a04e7 ""
-  "./report.tex" 1455779193 9522 b75c2707426eade10ff58be7869fc84a ""
+  "./report.tex" 1457587539 11893 b8a4b7d5638ecb912e517b7f9ebb4f69 ""
   "ODCNN.png" 1455778483 52142 38374f9589de7168ca04588f25d55d7a ""
   "autoencoder.png" 1455778514 26681 1180965acfa540233715359fdc1abc68 ""
   "c:/texlive/2015/texmf-dist/fonts/map/fontname/texfonts.map" 1455683234 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
@@ -55,10 +56,11 @@
   "c:/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1455731481 1836613 e566fc95e1597b75a28ad04bd6c5c733 ""
   "c:/texlive/2015/texmf-var/web2c/pdftex/pdflatex.fmt" 1455731613 3855073 d3f5d711348903d13c2ea95a88958f50 ""
   "c:/texlive/2015/texmf.cnf" 1455731463 497 7277663fd190ea5a4fe922b182dc7be2 ""
+  "da.png" 1457586687 43221936 8d2bd2b4926c08e1f21da0166d26fd70 ""
   "local.png" 1455745611 11941 8ebc371cf47177989919c0df2e0a04e7 ""
-  "report.aux" 1455779197 1333 45ba2263e25ab9f2dafbb321becee54a ""
-  "report.tex" 1455779193 9522 b75c2707426eade10ff58be7869fc84a ""
+  "report.aux" 1457587555 1642 c631476b2e4e0bad6a341b38f90b7b5f ""
+  "report.tex" 1457587539 11893 b8a4b7d5638ecb912e517b7f9ebb4f69 ""
   (generated)
-  "report.aux"
   "report.pdf"
+  "report.aux"
   "report.log"

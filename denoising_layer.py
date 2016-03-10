@@ -6,6 +6,7 @@ import numpy
 import timeit
 
 from load_data import *
+from utils import *
 
 
 class denoising_layer(object):
@@ -15,8 +16,8 @@ class denoising_layer(object):
         numpy_rng,
         corrupted_input,
         input,
-        n_visible=784,
-        n_hidden=500,
+        n_visible=800*600,
+        n_hidden=100,
         W=None,
         bhid=None,
         bvis=None
@@ -72,6 +73,8 @@ class denoising_layer(object):
 
         self.params = [self.W, self.b, self.b_prime]
 
+        self.z = T.nnet.sigmoid(0)
+
     def get_hidden_values(self, input):
         return T.nnet.sigmoid(T.dot(input, self.W) + self.b)
 
@@ -82,6 +85,7 @@ class denoising_layer(object):
         tilde_x = self.c
         y = self.get_hidden_values(tilde_x)
         z = self.get_reconstructed_input(y)
+        self.z = z
         # cross entropy
         L = - T.sum(self.x * T.log(z) + (1 - self.x) * T.log(1 - z), axis=1)
         cost = T.mean(L)
@@ -94,7 +98,7 @@ class denoising_layer(object):
         return (cost, updates)
 
 
-def test_dA(learning_rate=0.1, training_epochs=1,
+def test_dA(learning_rate=0.1, training_epochs=5,
             batch_size=1, output_folder='dA_plots'):
 
     datasets = load_data()
@@ -116,7 +120,7 @@ def test_dA(learning_rate=0.1, training_epochs=1,
         corrupted_input=c,
         input=x,
         n_visible=800 * 600,
-        n_hidden=800 * 600
+        n_hidden=200
     )
 
     cost, updates = da.get_cost_updates(learning_rate)
@@ -136,7 +140,8 @@ def test_dA(learning_rate=0.1, training_epochs=1,
     for epoch in xrange(training_epochs):
         c = []
         for batch_index in xrange(n_train_batches):
-            c.append(train_da(batch_index))
+            j = train_da(batch_index)
+            c.append(j)
 
         print 'Training epoch %d, cost ' % epoch, numpy.mean(c)
 
@@ -144,13 +149,13 @@ def test_dA(learning_rate=0.1, training_epochs=1,
 
     training_time = (end_time - start_time)
 
-    print "training time: " + training_time
+    print "training time: " + str(training_time)
 
     image = Image.fromarray(tile_raster_images(
         X=da.W.get_value(borrow=True).T,
-        img_shape=(800, 600), tile_shape=(10, 10),
+        img_shape=(600, 800), tile_shape=(10, 10),
         tile_spacing=(1, 1)))
-    image.save('filters_corruption_30.png')
+    image.save('filters')
 
     os.chdir('../')
 
